@@ -1,7 +1,6 @@
 from django.db import models
 
-# Create your models here.
-
+# Model for Todos Table
 class Todo(models.Model):
     label = models.CharField(max_length=50)
     description = models.CharField(max_length=500)
@@ -16,10 +15,11 @@ class Todo(models.Model):
         (LOW, 'Low'),
     ]
     priority = models.CharField(
+        max_length=200,
         choices=PRIORITY_CHOICES,
         default=MED,
     )
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey('Category', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.label
@@ -27,13 +27,15 @@ class Todo(models.Model):
     def __str__(self):
         return self.description
 
+
+#Model for Events Table
 class Event(models.Model):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=500)
     start_date = models.DateField()
     end_date = models.DateField()
     event_time = models.DurationField()
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey('Category', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -41,7 +43,9 @@ class Event(models.Model):
     def __str__(self):
         return self.description
 
-class Category(models):
+
+#Model for Category table
+class Category(models.Model):
     title = models.CharField(max_length=200)
     RED = 'RD'
     BLUE = 'BL'
@@ -56,6 +60,7 @@ class Category(models):
         (WHITE, 'White'),
     ]
     color = models.CharField(
+        max_length=200,
         choices=COLOR_CHOICES,
         default=WHITE,
     )
