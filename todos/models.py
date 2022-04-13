@@ -21,6 +21,12 @@ class Todo(models.Model):
     )
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.label
+
+    def __str__(self):
+        return self.description
+
 class Event(models.Model):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=500)
@@ -28,6 +34,12 @@ class Event(models.Model):
     end_date = models.DateField()
     event_time = models.DurationField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+
+    def __str__(self):
+        return self.description
 
 class Category(models):
     title = models.CharField(max_length=200)
@@ -47,3 +59,6 @@ class Category(models):
         choices=COLOR_CHOICES,
         default=WHITE,
     )
+
+    def __str__(self):
+        return self.title
