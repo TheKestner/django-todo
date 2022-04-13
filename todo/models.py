@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Model for Todos Table
 class Todo(models.Model):
@@ -20,6 +21,7 @@ class Todo(models.Model):
         default=MED,
     )
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.label
@@ -36,6 +38,7 @@ class Event(models.Model):
     end_date = models.DateField()
     event_time = models.DurationField()
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -64,6 +67,10 @@ class Category(models.Model):
         choices=COLOR_CHOICES,
         default=WHITE,
     )
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    class Meta:
+     verbose_name_plural = 'Categories'
+     
     def __str__(self):
         return self.title
