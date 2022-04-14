@@ -13,21 +13,21 @@ from rest_framework import viewsets
 
 class TodoViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint that allows todo to be viewed or edited.
     """
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
 
 class EventViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint that allows event to be viewed or edited.
     """
     queryset = Event.objects.all()
     serializer_class = EventSerializer
 
 class CategoryViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint that allows category to be viewed or edited.
     """
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
