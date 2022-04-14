@@ -20,6 +20,8 @@ from todo import views
 
 router = routers.DefaultRouter()
 router.register(r'todo', views.TodoViewSet)
+router.register(r'event', views.EventViewSet)
+router.register(r'category', views.CategoryViewSet)
 
 
 urlpatterns = [
