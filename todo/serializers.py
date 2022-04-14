@@ -4,17 +4,17 @@ from .models import Todo, Event, Category
 class TodoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Todo
-        fields = ['id', 'label', 'description', 'due_date', 'status', 'priority']
+        fields = '__all__'
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ['id', 'title', 'description', 'start_date', 'end_date', 'event_time', 'category']
+        fields = '__all__'
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['id', 'title', 'color']
+        fields = '__all__'
 
 
 
