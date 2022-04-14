@@ -4,7 +4,7 @@ from .models import Todo, Event, Category
 class TodoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Todo
-        fields = ['id', 'description', 'due_date', 'status', 'priority']
+        fields = ['id', 'label', 'description', 'due_date', 'status', 'priority']
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
