@@ -31,6 +31,9 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'todo.apps.TodoConfig',
+    'rest_framework',
+    'myproject',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -70,6 +73,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.gitpod.io',
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
